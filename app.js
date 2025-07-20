@@ -6,9 +6,15 @@ const app = express();
 const blogRoutes = require("./server/routes/blog");
 
 // Connect MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/juiceblog", {
+mongoose.connect(process.env.mongodb+srv://patilvaish20:<db_password>@cluster0.soi1qup.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+})
+.then(() => {
+  console.log("✅ Connected to MongoDB");
+})
+.catch(err => {
+  console.error("❌ MongoDB connection error:", err);
 });
 
 // Middlewares
@@ -24,7 +30,6 @@ app.set("views", path.join(__dirname, "views"));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
-
 
 app.use("/blog", blogRoutes);
 
