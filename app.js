@@ -1,12 +1,22 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-require("dotenv").config(); // <-- for local `.env` support
+
+// ✅ Load .env only in development
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const app = express();
 const blogRoutes = require("./server/routes/blog");
 
-// ✅ Connect to MongoDB using environment variable
+// ✅ Check MongoDB URI
+if (!process.env.MONGODB_URI) {
+  console.error("❌ MONGODB_URI is not defined. Please set it in Render or .env file.");
+  process.exit(1); // stop server
+}
+
+// ✅ Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -18,23 +28,23 @@ mongoose.connect(process.env.MONGODB_URI, {
   console.error("❌ MongoDB connection error:", err);
 });
 
-// Middlewares
+// 🔷 Middlewares
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public")); // for uploads
-app.use(express.static(__dirname)); // to serve index.html, blog.css
+app.use(express.static("public")); // for static assets (like uploads, css, js)
 
-// Set EJS view engine
+// 🔷 Set EJS view engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Routes
+// 🔷 Routes
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.use("/blog", blogRoutes);
 
+// 🔷 Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
