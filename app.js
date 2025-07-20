@@ -6,30 +6,24 @@ const app = express();
 const blogRoutes = require("./server/routes/blog");
 
 // ✅ MongoDB Atlas connection URI
-const MONGODB_URI =
-  "mongodb+srv://patilvaish20:<your_password>@cluster0.soi1qup.mongodb.net/juiceblog?retryWrites=true&w=majority";
-
-// 🟢 Replace <your_password> with your actual Atlas password:
-const dbURI = MONGODB_URI.replace("<your_password>", "YourActualPasswordHere");
+const dbURI =
+  "mongodb+srv://patilvaish20:aMWmLasQyLCncp35@cluster0.soi1qup.mongodb.net/juiceblog?retryWrites=true&w=majority";
 
 // ✅ Connect to MongoDB Atlas
 mongoose
-  .connect(dbURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(dbURI)
   .then(() => {
     console.log("✅ Connected to MongoDB Atlas");
   })
   .catch((err) => {
     console.error("❌ MongoDB connection error:", err);
-    process.exit(1); // exit if cannot connect
+    process.exit(1);
   });
 
 // 📄 Middlewares
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public")); // for uploads
-app.use(express.static(__dirname)); // to serve index.html, blog.css
+app.use(express.static("public"));
+app.use(express.static(__dirname));
 
 // 📝 Set EJS view engine
 app.set("view engine", "ejs");
