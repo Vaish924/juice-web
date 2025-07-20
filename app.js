@@ -1,12 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+require("dotenv").config(); // <-- for local `.env` support
 
 const app = express();
 const blogRoutes = require("./server/routes/blog");
 
-// Connect MongoDB
-mongoose.connect(process.env.mongodb+srv://patilvaish20:<db_password>@cluster0.soi1qup.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0, {
+// ✅ Connect to MongoDB using environment variable
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
