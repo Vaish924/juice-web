@@ -1,450 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="about.css">
-    <style>
-        /* Navbar Styling */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            font-size: 1.2rem;
-            background-color: white;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+<link rel="stylesheet" href="about.css">
+<style>
+/* Reset & Base */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-        nav.scrolled {
-            padding: 10px 50px; /* Shrinks the navbar on scroll */
-        }
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  font-size: 1.2rem;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+nav.scrolled {
+  padding: 10px 50px;
+}
+nav .logo {
+  font-size: 2rem;
+  font-family: cursive;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+  padding: 0;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: black;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+nav ul li a:hover {
+  color: #FF6B6B;
+}
+nav ul li a.active {
+  text-decoration: underline;
+}
+nav .icons {
+  display: none;
+}
 
-        nav .logo {
-            font-size: 2rem;
-            color: black;
-            font-family: cursive;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            margin-left: auto;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: black; /* Default text color */
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #FF6B6B; /* Hover color */
-        }
-
-        /* Active link color */
-        nav ul li a.active {
-            text-decoration: underline;
-        }
-
-        nav .icons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        nav .icons i {
-            font-size: 1.5rem;
-            color: black;
-            cursor: pointer;
-        }
-/* About Us Section */
+/* About Section */
 .about-us-container {
-    position: relative;
-    height: 100vh; /* Adjusted to show the entire image (full viewport height) */
-    background: url('aboutimg.jpg') no-repeat center center;
-    background-size: contain; /* Ensures the entire image fits within the container */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    overflow: hidden; /* Prevents image overflow outside the container */
+  position: relative;
+  height: 100vh;
+  background: url('aboutimg.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
 }
-
 .about-content {
-    z-index: 2;
-    max-width: 700px;
-    padding: 20px;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
 }
-
 .about-content h1 {
-    font-size: 4rem;
-    font-family: cursive;
-    margin-bottom: 20px;
+  font-size: 4rem;
+  margin-bottom: 20px;
 }
-
 .about-content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
-
-/* White Irregular Line Below */
 .about-us-container::after {
-    content: "";
-    position: absolute;
-    bottom: 0; /* Aligns the line perfectly with the bottom of the container */
-    left: 0;
-    width: 100%;
-    height: 300px;
-    background: url('bac3.png') no-repeat center center/cover;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: url('bac3.png') no-repeat center center/cover;
+  z-index: 1;
 }
 
-        /* Juice Section */
-        .juice-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 50px;
-            gap: 20px;
-        }
+/* Juice Section */
+.juice-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  gap: 20px;
+}
+.main-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.text-content {
+  max-width: 600px;
+}
+.text-content h3 {
+  font-size: 1.5rem;
+  color: #FF6B6B;
+  margin-bottom: 10px;
+}
+.text-content h1 {
+  font-size: 3rem;
+  color: black;
+  margin-bottom: 20px;
+}
+.text-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 20px;
+}
+.buy-btn {
+  background-color: #FF6B6B;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.buy-btn:hover {
+  background-color: #D9534F;
+}
 
-        .main-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .text-content {
-            max-width: 600px;
-        }
-
-        .text-content h3 {
-            font-size: 1.5rem;
-            color: #FF6B6B;
-            margin-bottom: 10px;
-        }
-
-        .text-content h1 {
-            font-size: 3rem;
-            color: black;
-            margin-bottom: 20px;
-        }
-
-        .text-content p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .buy-btn {
-            background-color: #FF6B6B;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .buy-btn:hover {
-            background-color: #D9534F;
-        }
-
-        /* Slider Styles */
+/* Slider */
 .slider-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    margin-top: 150px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 150px;
+}
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.slider img {
+  width: 20%;
+  flex-shrink: 0;
+}
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+/* Footer */
+.footer {
+  background: black;
+  color: white;
+  padding: 40px 50px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.footer-content div {
+  flex: 1;
+  min-width: 200px;
+}
+.footer h3 {
+  border-bottom: 2px solid gold;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Responsive (Tablet and below) */
+@media (max-width: 1024px) {
+  nav {
+    flex-direction: column;
+    padding: 15px 20px;
   }
-  
-  .slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .slider img {
-    width: 20%; /* Display 5 images in a row */
-    flex-shrink: 0; /* Prevent images from shrinking */
-    cursor: pointer;
-  }
-  
-  .slider img:active {
-    opacity: 0.7;
-  }
-  
-  button.prev, button.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 10;
-  }
-  
-  button.prev {
-    left: 10px;
-  }
-  
-  button.next {
-    right: 10px;
-  }
-  
-  
-  /* Footer Styles */
-  /* General Styles */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Footer Styles */
-  .footer {
-    background: black;
-    color: white;
-    padding: 40px 50px;
-    position: relative;
-  }
-  
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
+  nav ul {
+    margin-top: 10px;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 70px; /* Adds consistent gap between sections */
+  }
+  .about-content h1 {
+    font-size: 2.5rem;
+  }
+  .juice-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .main-image img {
+    max-width: 90%;
+  }
+  .text-content h1 {
+    font-size: 2rem;
+  }
+  .slider img {
+    width: 33.33%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .about-content h1 {
+    font-size: 2rem;
+  }
+  .about-content p {
+    font-size: 1rem;
+  }
+  .text-content h1 {
+    font-size: 1.5rem;
+  }
+  .slider img {
+    width: 100%;
+  }
+}
+
+
+
+/* Hamburger styles */
+#hamburger {
+  cursor: pointer;
+  display: none; /* hide by default */
+  flex-direction: column;
+  gap: 5px;
+}
+
+#hamburger span {
+  width: 25px;
+  height: 3px;
+  background: black;
+  border-radius: 2px;
+}
+
+/* Nav links */
+#nav-links {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+  padding: 0;
+}
+
+#nav-links li {
+  margin: 0 15px;
+}
+
+#nav-links li a {
+  color: black;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#nav-links li a:hover {
+  color: #FF6B6B;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  #hamburger {
+    display: flex; /* show hamburger */
   }
   
-  .footer-content div {
-    flex: 1;
-    margin: 10px;
+  /* Hide nav links initially */
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
   }
   
-  
-  .footer h3 {
-    display: inline-block;
-    border-bottom: 2px solid gold;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    font-weight: bold;
+  #nav-links.active {
+    display: flex;
   }
   
-  
-  .footer ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer ul li {
-    margin-bottom: 10px;
-  }
-  
-  .footer ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  
-  /* Footer Bottom Section */
-  .footer-bottom {
+  #nav-links li {
+    margin: 10px 0;
     text-align: center;
-    margin-top: 30px;
-    font-size: 14px;
-    color: #ccc;
   }
-  
-  /* Footer Background Images */
-  .footer::before,
-  .footer::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 200px;
-    height: auto;
-    z-index: 0;
-    opacity: 0.8;
-  }
-  
-  .footer::before {
-    background: url('footer-pattern-1.png') no-repeat left bottom;
-    left: 0;
-  }
-  
-  .footer::after {
-    background: url('footer-pattern-2.png') no-repeat right bottom;
-    right: 0;
-  }
-  
-    </style>
+}
+
+
+</style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav id="navbar">
-        <div class="logo">Foodily</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-        <div class="icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
 
-    <!-- About Us Section -->
-    <div class="about-us-container">
-        <div class="about-content">
-            <h1>About Us</h1>
-            <p>
-                We are passionate about providing the healthiest and most refreshing smoothies and juices,
-                made from the freshest fruits and natural ingredients.
-            </p>
-        </div>
-    </div>
+<!-- Navbar -->
+<nav id="navbar">
+  <div class="logo">Foodily</div>
 
-    <!-- Juice Section -->
-    <div class="juice-container">
-        <div class="main-image">
-            <img src="juiceglasses.png" alt="Fresh Fruit Juices">
-        </div>
-        <div class="text-content">
-            <h3 class="sub-heading">Drink For Health</h3>
-            <h1 class="main-heading">Fresh Fruit <span>Juices</span></h1>
-            <p class="description">
-                At Foodily, we believe in the power of fresh fruits and vegetables to nourish your body and boost your energy. Our mission is to inspire healthier living with delicious, nutrient-packed juice recipes that are easy to make and perfect for every season. Ditch the artificial drinks—embrace the goodness of nature!
-            </p>
-                         <a href="menu.html">
-  <button class="buy-btn">View now</button>
-</a>
-        </div>
-    </div>
+  <!-- Hamburger menu icon -->
+  <div id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+    <span style="width: 25px; height: 3px; background: black; border-radius: 2px;"></span>
+    <span style="width: 25px; height: 3px; background: black; border-radius: 2px;"></span>
+    <span style="width: 25px; height: 3px; background: black; border-radius: 2px;"></span>
+  </div>
 
-    
-   <!-- Image Slider -->
-  
+  <ul id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
 
+<!-- About Section -->
+<div class="about-us-container">
+  <div class="about-content">
+    <h1>About Us</h1>
+    <p>
+      We are passionate about providing the healthiest and most refreshing smoothies and juices, made from the freshest fruits and natural ingredients.
+    </p>
+  </div>
+</div>
 
+<!-- Juice Section -->
+<div class="juice-container">
+  <div class="main-image">
+    <img src="juiceglasses.png" alt="Fresh Juices">
+  </div>
+  <div class="text-content">
+    <h3>Drink For Health</h3>
+    <h1>Fresh Fruit <span>Juices</span></h1>
+    <p>
+      At Foodily, we believe in the power of fresh fruits and vegetables to nourish your body and boost your energy. Our mission is to inspire healthier living with delicious, nutrient-packed juice recipes for every season.
+    </p>
+    <a href="menu.html"><button class="buy-btn">View Now</button></a>
+  </div>
+</div>
+
+<!-- Slider -->
 <div class="slider-container">
-    <button class="prev">❮</button>
-    <div class="slider">
-        <img src="first.jpg" alt="Image 1">
-        <img src="2nd.jpg" alt="Image 2">
-        <img src="3rd.jpg" alt="Image 3">
-        <img src="4th.jpg" alt="Image 4">
-        <img src="6th.jpg" alt="Image 5">
-        <img src="first.jpg" alt="Image 6">
-        <img src="2nd.jpg" alt="Image 7">
-        <img src="3rd.jpg" alt="Image 8">
-        <img src="4th.jpg" alt="Image 8">
-        <img src="6th.jpg" alt="Image 8">
-    </div>
-    <button class="next">❯</button>
+  <button class="prev">❮</button>
+  <div class="slider">
+    <img src="first.jpg" alt="1">
+    <img src="2nd.jpg" alt="2">
+    <img src="3rd.jpg" alt="3">
+    <img src="4th.jpg" alt="4">
+    <img src="6th.jpg" alt="5">
+    <img src="first.jpg" alt="6">
+    <img src="2nd.jpg" alt="7">
+  </div>
+  <button class="next">❯</button>
 </div>
 
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-content">
-      <div class="contact">
-          <h3>Contact Us</h3>
-          <p>A/P Bhivashi, Tal-Nippani, Dis-Belaguam,State-Karnataka</p>
-          <p>vaishnavipatil.9333@gmail.com</p>
-          <p>8088454300</p>
-      </div>
-      <div class="links">
-          <h3>Useful Links</h3>
-          <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="new.html">About Us</a></li>
-              <li><a href="/blog">Blogs</a></li>
-          </ul>
-      </div>
-      <div class="social">
-          <h3>Follow Us Now</h3>
-          <ul>
-              <li><a href="https://www.linkedin.com/in/patilvaishnavi20">Linkedin</a></li>
-              <li><a href="https://www.instagram.com/vaishnavi.patil_21/">Instagram</a></li>
-              <li><a href="https://github.com/Vaish924">Github</a></li>
-
-          </ul>
-      </div>
-     
+    <div>
+      <h3>Contact Us</h3>
+      <p>A/P Bhivashi, Tal-Nippani, Karnataka</p>
+      <p>vaishnavipatil.9333@gmail.com</p>
+      <p>8088454300</p>
+    </div>
+    <div>
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Follow Us</h3>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/patilvaishnavi20">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/vaishnavi.patil_21/">Instagram</a></li>
+        <li><a href="https://github.com/Vaish924">GitHub</a></li>
+      </ul>
+    </div>
   </div>
   <div class="footer-bottom">
-      <p>© 2025 Foodily All Rights Reserved.</p>
+    <p>© 2025 Foodily. All Rights Reserved.</p>
   </div>
 </footer>
 
-    
-          
-    <script>
-        // Shrink Navbar on Scroll
-        window.addEventListener("scroll", function () {
-            const navbar = document.getElementById("navbar");
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-        });
+<script>
+// Navbar scroll shrink
+window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("navbar");
+  navbar.classList.toggle("scrolled", window.scrollY > 50);
+});
+
+// Slider
+const slider = document.querySelector('.slider');
+const images = document.querySelectorAll('.slider img');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+let index = 0;
+const numImagesPerSlide = 5;
+const totalImages = images.length;
+const totalSlides = Math.ceil(totalImages / numImagesPerSlide);
+
+function updateSlider() {
+  const slideWidth = images[0].clientWidth;
+  slider.style.transform = `translateX(${-index * slideWidth * numImagesPerSlide}px)`;
+}
+
+next.addEventListener('click', () => {
+  index = (index + 1) % totalSlides;
+  updateSlider();
+});
+
+prev.addEventListener('click', () => {
+  index = (index - 1 + totalSlides) % totalSlides;
+  updateSlider();
+});
+
+updateSlider();
+</script>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+</script>
 
 
-
-        const slider = document.querySelector('.slider');
-      const images = document.querySelectorAll('.slider img');
-      const prev = document.querySelector('.prev');
-      const next = document.querySelector('.next');
-      
-      let index = 0; // Current slide index
-      const numImagesPerSlide = 5; // Number of images to show per slide
-      const totalImages = images.length;
-      
-      // Calculate the total number of slides
-      const totalSlides = Math.ceil(totalImages / numImagesPerSlide);
-      
-      // Function to update the slider position
-      function updateSlider() {
-          const slideWidth = images[0].clientWidth; // Width of one image
-          slider.style.transform = `translateX(${-index * slideWidth * numImagesPerSlide}px)`;
-      }
-      
-      // Add event listener for the "next" button
-      next.addEventListener('click', () => {
-          index = (index + 1) % totalSlides; // Loop back to the first slide after the last one
-          updateSlider();
-      });
-      
-      // Add event listener for the "previous" button
-      prev.addEventListener('click', () => {
-          index = (index - 1 + totalSlides) % totalSlides; // Loop back to the last slide if going before the first one
-          updateSlider();
-      });
-      
-      // Initial slider update
-      updateSlider();
-      
-
-    </script>
 </body>
 </html>

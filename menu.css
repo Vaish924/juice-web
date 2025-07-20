@@ -583,3 +583,100 @@ body {
   background: url('footer-pattern-2.png') no-repeat right bottom;
   right: 0;
 }
+
+/* Tablet: up to 1024px */
+@media (max-width: 1024px) {
+  nav {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    margin-top: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .about-us-container {
+    height: 40vh;
+  }
+
+  .about-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .features-container .feature-box {
+    margin-bottom: 20px;
+  }
+
+  .video-container img {
+    max-width: 95%;
+  }
+
+  .slider img {
+    width: 33.33%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-content > div {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+/* Mobile: up to 480px */
+@media (max-width: 480px) {
+  .about-content h1 {
+    font-size: 2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .features-container {
+    padding: 10px;
+  }
+
+  .feature-box img {
+    width: 80%;
+  }
+
+  .slider img {
+    width: 100%;
+  }
+
+  .footer-content > div {
+    min-width: unset;
+  }
+}
+/* Fix content under fixed navbar */
+.about-us-container {
+  margin-top: 80px; /* adjust for navbar height */
+}
+
+/* For mobile: slightly smaller navbar, adjust accordingly */
+@media (max-width: 480px) {
+  .about-us-container {
+    margin-top: 100px; /* in case navbar grows on wrap */
+  }
+}
+@media (max-width: 480px) {
+  nav {
+    height: 100px;
+  }
+
+  .about-us-container {
+    margin-top: 100px;
+  }
+}

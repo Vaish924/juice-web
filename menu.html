@@ -5,22 +5,231 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="menu.css">
+    <style>
+      /* Responsive layout for the entire page */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Juice cards layout */
+#juices-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Juice card styles */
+.juice-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  width: 220px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.juice-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.juice-card button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #FF6B6B;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.juice-card button:hover {
+  background-color: #e55b5b;
+}
+
+/* Recipe Details Container */
+.recipe-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.recipe-container h2 {
+  margin-top: 0;
+}
+
+.recipe-container img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.recipe-container ul {
+  padding-left: 20px;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #45a049;
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 768px) {
+  .juice-card {
+    width: 90%;
+  }
+
+  .recipe-container {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .recipe-container img {
+    max-height: 250px;
+    object-fit: cover;
+  }
+
+  .slider img {
+    width: 33.33%;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider img {
+    width: 50%;
+  }
+
+  .juice-card {
+    width: 100%;
+  }
+
+  .recipe-container ul {
+    font-size: 14px;
+  }
+
+  .recipe-container p {
+    font-size: 14px;
+  }
+
+  .back-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Navbar Base */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 20px 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+nav .logo {
+  font-size: 2rem;
+  font-family: cursive;
+  color: black;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.nav-links li a.active {
+  text-decoration: underline;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: black;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+    </style>
 </head>
 <body>
     <nav id="navbar">
-        <div class="logo">Foodily</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="new.html">About</a></li>
-            <li><a href="menu.html" class="active">Menu</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="contact.html">Contact us</a></li>
-        </ul>
-        <div class="icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-bars"></i>
-        </div>
-    </nav>
+  <div class="logo">Foodily</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="new.html">About</a></li>
+    <li><a href="menu.html" class="active">Menu</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="contact.html">Contact us</a></li>
+  </ul>
+  <div class="hamburger">
+    <span style="width: 25px; height: 3px; background: black; border-radius: 2px;"></span>
+    <span style="width: 25px; height: 3px; background: black; border-radius: 2px;"></span>
+    <span style="width: 25px; height: 3px; background: black; border-radius: 2px;"></span>
+  </div>
+</nav>
+
 
     <!-- About Us Section -->
     <div class="about-us-container">
@@ -262,6 +471,16 @@
       
 
     </script>
+
+    <script>
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+</script>
+
     
 
     

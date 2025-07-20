@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="about.css">
     <style>
         /* Navbar Styling */
@@ -73,16 +74,29 @@
 /* About Us Section */
 .about-us-container {
     position: relative;
-    height: 100vh; /* Adjusted to show the entire image (full viewport height) */
+    height: 60vh; /* Smaller by default */
     background: url('aboutimg.jpg') no-repeat center center;
-    background-size: contain; /* Ensures the entire image fits within the container */
+    background-size: cover; /* fill the area */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    overflow: hidden; /* Prevents image overflow outside the container */
+    overflow: hidden;
 }
+
+@media (min-width: 768px) {
+    .about-us-container {
+        height: 80vh; /* Larger on bigger screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    .about-us-container {
+        height: 100vh;
+    }
+}
+
 
 .about-content {
     z-index: 2;
@@ -385,6 +399,102 @@ textarea {
         padding-left: 0;
     }
 }
+/* ✅ Navbar Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    padding: 10px 20px;
+  }
+
+  nav ul {
+    display: none; /* hidden by default on small screens */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav .icons {
+    margin-left: auto;
+  }
+
+  nav .icons i {
+    font-size: 1.8rem;
+  }
+}
+
+/* Form & slider adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .form-section,
+  .info-section {
+    width: 100%;
+  }
+
+  .slider img {
+    width: 33.33%; /* 3 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .slider img {
+    width: 50%; /* 2 per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* Hide nav links on small screens */
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 70px; /* below navbar */
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav .icons {
+        display: flex;
+    }
+}
+
+/* Always show nav links on large screens */
+@media (min-width: 769px) {
+    nav ul {
+        display: flex !important;
+    }
+
+    nav .icons {
+        display: none;
+    }
+}
+
 
   
     </style>
@@ -401,7 +511,6 @@ textarea {
             <li><a href="contact.html" class="active">Contact Us</a></li>
         </ul>
         <div class="icons">
-            <i class="fas fa-search"></i>
             <i class="fas fa-bars"></i>
         </div>
     </nav>
@@ -598,6 +707,64 @@ sendBtn.addEventListener("click", async () => {
   }
 });
 </script>
+<script>
+  // Shrink Navbar on Scroll
+  window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+      } else {
+          navbar.classList.remove("scrolled");
+      }
+  });
+
+  // Slider
+  const slider = document.querySelector('.slider');
+  const images = document.querySelectorAll('.slider img');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+
+  let index = 0;
+  const numImagesPerSlide = 5;
+  const totalImages = images.length;
+  const totalSlides = Math.ceil(totalImages / numImagesPerSlide);
+
+  function updateSlider() {
+      const slideWidth = images[0].clientWidth;
+      slider.style.transform = `translateX(${-index * slideWidth * numImagesPerSlide}px)`;
+  }
+
+  next.addEventListener('click', () => {
+      index = (index + 1) % totalSlides;
+      updateSlider();
+  });
+
+  prev.addEventListener('click', () => {
+      index = (index - 1 + totalSlides) % totalSlides;
+      updateSlider();
+  });
+
+  updateSlider();
+
+  // ✅ Toggle mobile menu
+  const menuIcon = document.querySelector(".fa-bars");
+  const navLinks = document.querySelector("nav ul");
+
+  menuIcon.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+
+  
+</script>
+<script>
+const menuIcon = document.querySelector(".fa-bars");
+const navLinks = document.querySelector("nav ul");
+
+menuIcon.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+});
+</script>
+
 
 </body>
 </html>
